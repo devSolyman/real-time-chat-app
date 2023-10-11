@@ -19,6 +19,6 @@ if(!this.isModified){
 const salt =await bcrypt.genSalt(10)
 this.password=await bcrypt.hash(this.password, salt)
 })
-const User=mongoose.model('Chat',usersModel)
+const User=mongoose.model('User',usersModel)
 
 module.exports=User

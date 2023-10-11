@@ -4,6 +4,7 @@ const cors=require('cors')
 const  userRoutes = require('./routes/userRoutes')
 const bodyParser = require('body-parser')
 const { errorHandler, notFound } = require('./middleware/errorMiddleware')
+const chatRoutes=require('./routes/chatRoutes')
 require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URL, {
 })
 app.use(bodyParser.json());
 app.use('/api/user',userRoutes);
+app.use('/api/chat',chatRoutes)
 app.use(errorHandler)
 app.use(notFound)
 
